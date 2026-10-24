@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121013">
+  <title>Bizim Anılarımız ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="heart-line">──── ♡ ────</div>
+    <h1>Seninle Her An Daha Güzel</h1>
+    <p>Hayatımın en güzel karesi...</p>
+  </header>
+<div class="music-player">
+  <div class="music-icon">♫</div>
+
+  <div class="music-info">
+    <strong>Bizim Şarkımız ❤️</strong>
+    <span id="music-status">Müziği başlat</span>
+  </div>
+
+  <button id="music-toggle" aria-label="Müziği başlat">
+    ▶
+  </button>
+
+  <audio id="background-music" loop preload="none">
+    <source src="muzik/sarki.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+
+  <nav class="filters" aria-label="Fotoğraf kategorileri">
+    <button class="filter active" data-category="all">Tüm Fotoğraflar</button>
+    <button class="filter" data-category="anilar">Anılar</button>
+    <button class="filter" data-category="geziler">Geziler</button>
+    <button class="filter" data-category="ozel">Özel Anlar</button>
+  </nav>
+
+  <main>
+    <section class="gallery" id="gallery"
+      aria-label="Fotoğraf albümümüz"></section>
+  </main>
+
+  <footer>
+    <div class="footer-heart">♥</div>
+    <p>Her fotoğrafta ayrı bir mutluluk, her anıda sen. ♡</p>
+    <span>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="close" id="close" aria-label="Kapat">×</button>
+    <button class="nav prev" id="prev" aria-label="Önceki fotoğraf">‹</button>
+
+    <div class="lightbox-content">
+      <img id="largeImage" src="" alt="Büyütülmüş fotoğraf">
+      <p id="caption"></p>
+      <span id="counter"></span>
+    </div>
+
+    <button class="nav next" id="next" aria-label="Sonraki fotoğraf">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
