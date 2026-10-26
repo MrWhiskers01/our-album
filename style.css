@@ -606,37 +606,24 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobil ve Dar Ekranlarda İkonların Sağlı Sollu Kalması */
 @media (max-width: 992px) {
   .hero-wrapper {
-    flex-direction: row; /* Yan yana durmaya devam ederler */
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px; /* Mobilde aradaki mesafeyi daraltır */
-    padding-top: 15px;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
   }
   
   .hero-side-box {
-    width: auto; /* Sabit 290px genişliği kaldırır */
-    flex: 0 0 auto;
+    width: auto;
+    justify-content: center !important;
+  }
+
+  .side-album-img {
+    width: 200px;
   }
 
   .hero-side-box.right {
-    display: flex !important; /* Sağdaki ikunun mobilde gizlenmesini engeller */
-    justify-content: flex-end;
-  }
-
-  /* Mobilde ikonların ekranı kaplamaması için boyutunu küçültür */
-  .side-album-img {
-    width: clamp(75px, 22vw, 150px);
-  }
-
-  .hero-center-content {
-    padding: 0 5px;
-  }
-
-  .hero h1 {
-    font-size: clamp(20px, 5vw, 32px); /* Mobilde başlık yazısını da uyumlu küçültür */
+    display: none;
   }
 }
 
