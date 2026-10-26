@@ -1,4 +1,4 @@
-// AÇIKLAMA VE FOTOĞRAF LİSTESİ ALANI
+// AÇIKLAMA EKLEME ALANI:
 const customTitles = {
   1: "En güzel gülüşün ♡",
   2: "Birlikte geçirdiğimiz günler",
@@ -6,12 +6,11 @@ const customTitles = {
 
 const categories = ["anilar", "geziler", "ozel"];
 
-// GitHub Pages rate limit engeline takılmamak için var olan fotoğraflarınızın numaralarını girin
-// Örneğin klasörünüzde foto1.jpg'den foto15.jpg'ye kadar varsa limitSayisi = 15 yapın.
-const mevcutFotoSayisi = 20; // Klasörünüzdeki gerçek fotoğraf sayısı kaçsa buraya o rakamı yazın
+// GitHub Pages rate limit hatası almamak için gerçek fotoğraf sayınızı girin (Örn: 30)
+const toplamFotoSayisi = 30;
 
 const allPhotos = [];
-for (let i = 1; i <= mevcutFotoSayisi; i++) {
+for (let i = 1; i <= toplamFotoSayisi; i++) {
   allPhotos.push({
     src: `fotograflar/foto${i}.jpg`,
     title: customTitles[i] || "",
@@ -282,7 +281,7 @@ function updatePoem() {
   if (!poems.length) return;
   const poem = poems[currentPoemIndex];
 
-  // Başlık varsa gösterir, yoksa gizler (otomatik isim atanmaz)
+  // Başlık varsa gösterir, yoksa gizler
   if (poem.title) {
     poemTitle.textContent = poem.title;
     poemTitle.style.display = "block";
