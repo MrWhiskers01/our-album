@@ -1,4 +1,4 @@
-// AÇIKLAMA EKLEME ALANI:
+// AÇIKLAMA VE FOTOĞRAF LİSTESİ ALANI
 const customTitles = {
   1: "En güzel gülüşün ♡",
   2: "Birlikte geçirdiğimiz günler",
@@ -6,9 +6,12 @@ const customTitles = {
 
 const categories = ["anilar", "geziler", "ozel"];
 
-// 1'den 500'e kadar tüm fotoğrafları oluştur
+// GitHub Pages rate limit engeline takılmamak için var olan fotoğraflarınızın numaralarını girin
+// Örneğin klasörünüzde foto1.jpg'den foto15.jpg'ye kadar varsa limitSayisi = 15 yapın.
+const mevcutFotoSayisi = 20; // Klasörünüzdeki gerçek fotoğraf sayısı kaçsa buraya o rakamı yazın
+
 const allPhotos = [];
-for (let i = 1; i <= 500; i++) {
+for (let i = 1; i <= mevcutFotoSayisi; i++) {
   allPhotos.push({
     src: `fotograflar/foto${i}.jpg`,
     title: customTitles[i] || "",
