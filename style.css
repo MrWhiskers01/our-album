@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -20,9 +19,59 @@ body {
   min-height: 100vh;
 }
 
+/* --- Simetrik ve Kusursuz Yan İkon Üst Düzeni --- */
+.hero-wrapper {
+  width: min(1280px, 95%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 0 20px;
+}
+
+.hero-side-box {
+  width: 290px;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.hero-side-box.left {
+  justify-content: flex-start;
+}
+
+.hero-side-box.right {
+  justify-content: flex-end;
+}
+
+.hero-center-content {
+  flex: 1;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.side-album-img {
+  width: 290px;
+  height: auto;
+  filter: drop-shadow(0 12px 28px rgba(244, 123, 135, 0.4));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+  cursor: pointer;
+}
+
+.left-album:hover {
+  transform: scale(1.06) rotate(-5deg);
+  filter: drop-shadow(0 18px 36px rgba(244, 123, 135, 0.6));
+}
+
+.right-album:hover {
+  transform: scale(1.06) rotate(5deg);
+  filter: drop-shadow(0 18px 36px rgba(244, 123, 135, 0.6));
+}
+
 .hero {
   text-align: center;
-  padding: 55px 20px 25px;
+  padding: 20px 20px 20px;
 }
 
 .heart-line {
@@ -119,6 +168,142 @@ body {
   font-size: 14px;
 }
 
+/* --- Sayfa Üstündeki "Bizim Şarkımız" Oynatıcısı --- */
+.music-player {
+  width: min(360px, 90%);
+  margin: 0 auto 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border: 1px solid #49313c;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #241b24, #171318);
+  box-shadow: 0 8px 28px #0004;
+}
+
+.music-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f47b87;
+  color: #211418;
+  font-size: 27px;
+}
+
+.music-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.music-info strong {
+  font-size: 14px;
+}
+
+.music-info span {
+  color: #b9aab5;
+  font-size: 12px;
+}
+
+#music-toggle {
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background: #f47b87;
+  color: #211418;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+#music-toggle:hover {
+  transform: scale(1.06);
+}
+
+/* --- Sayaç Tasarımı --- */
+.time-counter-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px 60px;
+}
+
+.counter-card {
+  background-color: #1a1518;
+  border: 1px solid #30272f;
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  width: min(800px, 100%);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+}
+
+.counter-card h2 {
+  color: var(--pink);
+  font-size: 26px;
+  font-family: Georgia, serif;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.start-date {
+  color: #b9aab5;
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+.time-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.t-box {
+  background: #21191f;
+  border: 1px solid #3c313a;
+  border-radius: 12px;
+  padding: 18px 12px;
+  min-width: 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.t-box span:first-child {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--text);
+  line-height: 1;
+}
+
+.t-box span:last-child {
+  font-size: 12px;
+  color: #a496a0;
+  letter-spacing: 1px;
+}
+
+.counter-card .divider {
+  border-top: 1px dashed #3c313a;
+  margin: 0 auto 20px;
+  width: 90%;
+}
+
+.total-text {
+  color: var(--text);
+  font-style: italic;
+  font-size: 15px;
+}
+
 footer {
   text-align: center;
   padding: 30px 15px 40px;
@@ -131,12 +316,6 @@ footer {
   color: var(--pink);
   font-size: 25px;
   margin-bottom: 10px;
-}
-
-footer span {
-  display: block;
-  margin-top: 10px;
-  font-size: 12px;
 }
 
 .lightbox {
@@ -219,9 +398,233 @@ footer span {
 .prev { left: 20px; }
 .next { right: 20px; }
 
+/* --- Spotify Oynatıcısı --- */
+.floating-spotify {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  z-index: 99;
+  background: #1d171c;
+  border: 1px solid #49313c;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.floating-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #271e26;
+  color: var(--pink);
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.floating-header button {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.floating-body {
+  padding: 8px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.floating-body.collapsed {
+  display: none;
+}
+
+/* --- Sayfanın Sol Kenarına Sabitlenmiş Kayan Şiir Butonu --- */
+.floating-poem-btn {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 98;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1d171c;
+  border: 1px solid #49313c;
+  padding: 12px 16px;
+  border-radius: 30px;
+  color: var(--pink);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-poem-btn:hover {
+  background: var(--pink);
+  color: #171318;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 12px 35px rgba(244, 123, 135, 0.4);
+}
+
+.floating-poem-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.floating-poem-text {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* --- Parşömen Modal Penceresi --- */
+.poem-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 7, 9, 0.88);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+}
+
+.poem-modal.open {
+  display: flex;
+  animation: appear 0.35s ease;
+}
+
+.parchment-paper {
+  position: relative;
+  width: min(520px, 92vw);
+  max-height: 85vh;
+  background: #f4e4c1;
+  background-image: 
+    radial-gradient(#e2c992 15%, transparent 16%),
+    radial-gradient(#d3b778 15%, transparent 16%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  color: #3c2415;
+  padding: 40px 35px 30px;
+  border-radius: 6px;
+  box-shadow: 
+    0 0 0 1px #b89860,
+    inset 0 0 60px rgba(112, 70, 24, 0.35),
+    0 20px 50px rgba(0, 0, 0, 0.8);
+  border: 8px solid #edd39e;
+  overflow-y: auto;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.poem-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  color: #633e24;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.poem-close:hover {
+  transform: scale(1.2);
+  color: #8c2a2a;
+}
+
+.parchment-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.parchment-seal {
+  font-size: 28px;
+  color: #8c2a2a;
+  display: block;
+}
+
+.parchment-header h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #4a2711;
+  margin: 5px 0;
+}
+
+.parchment-divider {
+  color: #8c2a2a;
+  font-size: 14px;
+}
+
+.poem-content {
+  text-align: center;
+  line-height: 1.75;
+  font-size: 16.5px;
+  font-style: italic;
+  white-space: pre-line;
+  margin-bottom: 30px;
+  color: #2b170c;
+}
+
+.poem-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed #b89860;
+  padding-top: 15px;
+}
+
+.poem-nav {
+  background: #633e24;
+  color: #f4e4c1;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.poem-nav:hover {
+  background: #8c2a2a;
+}
+
+#poemCounter {
+  font-size: 13px;
+  color: #633e24;
+  font-weight: bold;
+}
+
 @keyframes appear {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 992px) {
+  .hero-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+  }
+  
+  .hero-side-box {
+    width: auto;
+    justify-content: center !important;
+  }
+
+  .side-album-img {
+    width: 200px;
+  }
+
+  .hero-side-box.right {
+    display: none;
+  }
 }
 
 @media (max-width: 850px) {
@@ -232,8 +635,6 @@ footer span {
 }
 
 @media (max-width: 560px) {
-  .hero { padding-top: 38px; }
-
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
@@ -246,60 +647,19 @@ footer span {
   .lightbox-content img { max-height: 65vh; }
   .prev { left: 5px; }
   .next { right: 5px; }
-}
+  .t-box { min-width: 70px; padding: 12px 8px; }
 
-.music-player {
-  width: min(360px, 90%);
-  margin: 0 auto 30px;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  border: 1px solid #49313c;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #241b24, #171318);
-  box-shadow: 0 8px 28px #0004;
-}
+  .floating-spotify {
+    width: calc(100% - 30px);
+    right: 15px;
+    bottom: 15px;
+  }
 
-.music-icon {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #f47b87;
-  color: #211418;
-  font-size: 27px;
-}
-
-.music-info {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.music-info strong {
-  font-size: 14px;
-}
-
-.music-info span {
-  color: #b9aab5;
-  font-size: 12px;
-}
-
-#music-toggle {
-  border: none;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  background: #f47b87;
-  color: #211418;
-  font-size: 17px;
-  cursor: pointer;
-}
-
-#music-toggle:hover {
-  transform: scale(1.06);
+  .floating-poem-btn {
+    left: 15px;
+    top: auto;
+    bottom: 80px;
+    transform: none;
+    padding: 10px 14px;
+  }
 }

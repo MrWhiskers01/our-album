@@ -1,37 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#121013">
-  <title>Bizim Anılarımız ❤️</title>
+  <title>Sümeyra ♡ Mert</title>
+
+  <!-- Favicon İkon Kodları -->
+  <link rel="icon" type="image/png" href="ouralbum.png?v=4">
+  <link rel="shortcut icon" type="image/png" href="ouralbum.png?v=4">
+  <link rel="apple-touch-icon" href="ouralbum.png?v=4">
+
+  <!-- Mobil Uygulama (PWA) Destek Kodları -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Sümeyra ♡ Mert">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="hero">
-    <div class="heart-line">──── ♡ ────</div>
-    <h1>Seninle Her An Daha Güzel</h1>
-    <p>Hayatımın en güzel karesi...</p>
-  </header>
-<div class="music-player">
-  <div class="music-icon">♫</div>
+  <!-- Sayfa Üstü Düzeni (Sol İkon - Orta İçerik - Sağ İkon) -->
+  <div class="hero-wrapper">
+    <!-- Sol Albüm Sütunu -->
+    <div class="hero-side-box left">
+      <img src="ouralbum.png" alt="Sümeyra & Mert" class="side-album-img left-album">
+    </div>
 
-  <div class="music-info">
-    <strong>Bizim Şarkımız ❤️</strong>
-    <span id="music-status">Müziği başlat</span>
+    <!-- Orta Alan (Başlık ve Müzik Çalar) -->
+    <div class="hero-center-content">
+      <header class="hero">
+        <div class="heart-line">──── ♡ ────</div>
+        <h1>Seninle Her An Daha Güzel</h1>
+        <p>Hayatımın en güzel karesi...</p>
+      </header>
+
+      <!-- Orijinal "Bizim Şarkımız" MP3 Oynatıcısı -->
+      <div class="music-player">
+        <div class="music-icon">♫</div>
+        <div class="music-info">
+          <strong>Bizim Şarkımız ❤️</strong>
+          <span id="music-status">Müziği başlat</span>
+        </div>
+        <button id="music-toggle" aria-label="Müziği başlat">▶</button>
+        <audio id="background-music" loop preload="none">
+          <source src="muzik/sarki.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+
+    <!-- Sağ Albüm Sütunu -->
+    <div class="hero-side-box right">
+      <img src="ouralbum.png" alt="Sümeyra & Mert" class="side-album-img right-album">
+    </div>
   </div>
-
-  <button id="music-toggle" aria-label="Müziği başlat">
-    ▶
-  </button>
-
-  <audio id="background-music" loop preload="none">
-    <source src="muzik/sarki.mp3" type="audio/mpeg">
-  </audio>
-</div>
-
 
   <nav class="filters" aria-label="Fotoğraf kategorileri">
     <button class="filter active" data-category="all">Tüm Fotoğraflar</button>
@@ -41,14 +64,32 @@
   </nav>
 
   <main>
-    <section class="gallery" id="gallery"
-      aria-label="Fotoğraf albümümüz"></section>
+    <section class="gallery" id="gallery" aria-label="Fotoğraf albümümüz"></section>
   </main>
+
+  <!-- Birlikte Geçen Süremiz Sayaç Alanı -->
+  <section class="time-counter-container">
+    <div class="counter-card">
+      <h2>Birlikte Geçen Süremiz ❤️</h2>
+      <p class="start-date">04.05.2026 / 04:38 tarihinden beri kalbimdesin...</p>
+
+      <div class="time-boxes">
+        <div class="t-box"><span id="c-years">0</span><span>YIL</span></div>
+        <div class="t-box"><span id="c-months">0</span><span>AY</span></div>
+        <div class="t-box"><span id="c-days">0</span><span>GÜN</span></div>
+        <div class="t-box"><span id="c-hours">0</span><span>SAAT</span></div>
+        <div class="t-box"><span id="c-minutes">0</span><span>DAKİKA</span></div>
+        <div class="t-box"><span id="c-seconds">0</span><span>SANİYE</span></div>
+      </div>
+
+      <div class="divider"></div>
+      <p class="total-text">Toplam <span id="c-total-hours">0</span> saattir kalbimin atışını seninle paylaşıyorum... ♡</p>
+    </div>
+  </section>
 
   <footer>
     <div class="footer-heart">♥</div>
     <p>Her fotoğrafta ayrı bir mutluluk, her anıda sen. ♡</p>
-    <span>
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -62,6 +103,56 @@
     </div>
 
     <button class="nav next" id="next" aria-label="Sonraki fotoğraf">›</button>
+  </div>
+
+  <!-- Sayfanın Kenarına Sabitlenmiş Spotify Playlist Oynatıcısı -->
+  <aside class="floating-spotify">
+    <div class="floating-header">
+      <span>♫ Çalma Listemiz</span>
+      <button id="toggle-spotify-btn" title="Gizle / Göster">−</button>
+    </div>
+    <div class="floating-body" id="spotify-body">
+      <iframe 
+        data-testid="embed-iframe" 
+        style="border-radius:12px" 
+        src="https://open.spotify.com/embed/playlist/2q0JjdKhaNtYNyg5F7A3KX?utm_source=generator&si=36eb269790734a56" 
+        width="100%" 
+        height="152" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </aside>
+
+  <!-- Sayfanın Sol Kenarına Sabitlenmiş Şiir Butonu -->
+  <aside class="floating-poem-btn" id="openPoemFloatingBtn" title="Şiirlerimizi Oku">
+    <div class="floating-poem-icon">📜</div>
+    <span class="floating-poem-text">Sana Şiirlerim</span>
+  </aside>
+
+  <!-- Eski Parşömen Şiir Modal / Penceresi -->
+  <div class="poem-modal" id="poemModal" aria-hidden="true">
+    <div class="parchment-paper">
+      <button class="poem-close" id="closePoemBtn" aria-label="Kapat">×</button>
+      
+      <div class="parchment-header">
+        <span class="parchment-seal">❦</span>
+        <h2 id="poemTitle"></h2>
+        <div class="parchment-divider">─── 🕮 ───</div>
+      </div>
+
+      <div class="poem-content">
+        <p id="poemText"></p>
+      </div>
+
+      <div class="poem-footer">
+        <button class="poem-nav" id="prevPoemBtn">‹ Önceki</button>
+        <span id="poemCounter">1 / 1</span>
+        <button class="poem-nav" id="nextPoemBtn">Sonraki ›</button>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
